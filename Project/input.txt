@@ -1,0 +1,43 @@
+
+%include<stdio.h> #$#
+%include<conio.h> #$#
+
+vd func func_name fa fc
+lp
+	ankur_d ## 85.13 #$#
+	CIN>"ankur_question" #$#
+	COUT<"Do you want to be prince" #$#
+	ankur_d eq ankur_b plus_plus #$#
+	ankur_b -# ankur_a #$#
+
+rp #$#
+
+vd mn fa fc 
+lp
+	int_i ankur_a #$#
+	float_f ankur_b #$#
+	ankur_a eq 10 jog ankur_b #$#
+	COUT<"Hello User" #$#
+	loopie < 0:10 >
+	lp
+
+	rp#$#
+	When ankur_c eqeq 10
+	lp
+
+	rp #$#
+	OR ankur_c lesser 10 ebong ankur_c greater 5
+	lp
+
+	rp #$#
+	@this is a test program #$#
+	@@this is another comment.
+	this is multiple line test @@ #$#
+
+	ret 0
+
+rp
+
+
+
+

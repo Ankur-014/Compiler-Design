@@ -1,0 +1,35 @@
+header_file <stdio.h> 
+header_file <conio.h> 
+keyword  user_function  user_function _name Parenthesis  Parenthesis Parenthesis 	identifier  assignment_operator  Float  
+	library_function : "identifier " 
+	library_function : "Do you want to be prince" 
+	identifier  relational_operator  identifier  unary_operator  
+	identifier  assignment_operator  identifier  
+Parenthesis  
+keyword  keyword  Parenthesis  Parenthesis  Parenthesis 	Datatype  identifier  
+	Datatype  identifier  
+	identifier  relational_operator  Integer  arithmatic_operator  identifier  
+	library_function : "Hello User" 
+	for loop 	Parenthesis 	Parenthesis 
+	conditional_statement  identifier  relational_operator  Integer 	Parenthesis 	Parenthesis  
+	conditional_statement  identifier  relational_operator  Integer  logical_operator  identifier  relational_operator  Integer 	Parenthesis 	Parenthesis  
+	single_line_comment
+	multiple_line_comment  
+	keyword  Integer Parenthesis 
+Number of tokens:
+Identfiers=13
+arithmatic_operator=1
+unary_operator=1
+_logical_operator=1
+relational_operator=5
+assignment_operator=2
+library_function=3
+datatype=2
+loop=1
+conditional_statement=2
+integer=5
+floatnum=1
+doublenum=0
+Keywords=4
+Parenthesis=14
+ 
