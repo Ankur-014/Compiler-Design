@@ -2,17 +2,15 @@
 
 %{
 	#include<stdio.h>
-	//int sym[26],store[26];
 	int cnt=1,cntt=0,val;
 	typedef struct entry {
-    char *str;
-    int n;
-	}dict;
-	dict store[1000],sym[1000];
-	void inskorlam (dict *p, char *s, int n);
-	
+    	char *str;
+    	int n;
+	}storage;
+	storage store[1000],sym[1000];
+	void insert (storage *p, char *s, int n);
 	int cnt2=1; 
-	void inskorlam2 (dict *p, char *s, int n);
+	void insert2 (storage *p, char *s, int n);
 	
 %}
 %union 
@@ -24,7 +22,7 @@
 
 %token <number> NUM
 %token <string> VAR 
-%token <string> IF ELSE VOIDMAIN INT FLOAT CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc importtt inpit
+%token <string> IF ELSE FUNCTION INT FLOAT CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc 
 %type <string> statement
 %type <number> expression
 %nonassoc IFX
@@ -32,11 +30,13 @@
 %left LT GT
 %left PLUS MINUS
 %left MULT DIV
+%right POW
+
 /* Simple grammar rules */
 
 %%
 
-program: VOIDMAIN LP RP LB cstatement RB { printf("\nsuccessful compilation\n"); }
+program: FUNCTION LP RP LB cstatement RB { printf("\nSuccessful compilation\n"); }
 	 ;
 
 cstatement: /* empty */
@@ -47,7 +47,7 @@ cstatement: /* empty */
 	;
 
 cdeclaration:	TYPE ID1 SM	{ printf("\nvalid declaration\n"); }
-		| importtt inpit SM    
+   
 			;
 			
 TYPE : INT
@@ -64,7 +64,7 @@ ID1  : ID1 CM VAR	{
 						}
 						else
 						{
-							inskorlam(&store[cnt],$3, cnt);
+							insert(&store[cnt],$3, cnt);
 							cnt++;
 							
 						}
@@ -73,11 +73,11 @@ ID1  : ID1 CM VAR	{
      |VAR	{
 				if(number_for_key($1) == 1)
 				{
-					printf("%s is already declared\n", $1  );
+					printf("%s is already declared\n", $1 );
 				}
 				else
 				{
-					inskorlam (&store[cnt],$1, cnt);
+					insert(&store[cnt],$1, cnt);
 							cnt++;
 				}
 			}
@@ -90,13 +90,11 @@ statement: SM
 
         | VAR ASSIGN expression SM 		{
 							if(number_for_key($1)){
-							inskorlam2(&sym[$3], $1, $3);
-							
-							//printf("\n(%s) Value of the variable: %d\t\n",sym[$3].str,sym[$3].n); 
-							printf("\n(%s) Value of the variable: %d\t\n",$1,$3);
+								insert2(&sym[$3], $1, $3);
+								printf("\n(%s) Value of the variable: %d\t\n",$1,$3);
 							}
 							else {
-							printf("%s not declared yet\n",$1);
+								printf("%s not declared yet\n",$1);
 							}
 							
 						}
@@ -124,7 +122,6 @@ statement: SM
 								   }
 	| FOR LP NUM COL NUM RP LB expression RB     {
 	   int i=0;
-	   //printf("hoiche\n");
 	   for(i=$3;i<$5;i++){
 	   printf("for loop statement\n");
 	   }
@@ -137,6 +134,8 @@ statement: SM
 											printf("%d ",i);
 										}
 										printf("\n");
+										printf("value of the expression: \n",$8);
+
 	}
 	;
 ///////////////////////
@@ -150,7 +149,6 @@ statement: SM
 				 ;
 
 			Cs    : CASE NUM COL expression SM   {
-				//printf("NUM: %d val: %d\n",$2,val);
 						if($2==2){
 							  cntt=1;
 							  printf("\nCase No : %d  and Result :  %d\n",$2,$4);
@@ -187,6 +185,7 @@ expression: NUM				{ $$ = $1; 	}
 							printf("\ndivision by zero\t");
 				  		} 	
 				    	}
+	| expression POW expression { $$ = $1 ^ $3; }
 
 	| expression LT expression	{ $$ = $1 < $3; }
 
@@ -197,14 +196,13 @@ expression: NUM				{ $$ = $1; 	}
 	;
 %%
 //////////////////////////
-void inskorlam (dict *p, char *s, int n)
+void insert(storage *p, char *s, int n)
 {
   p->str = s;
   p->n = n;
 }
 
-int
-number_for_key(char *key)
+int number_for_key(char *key)
 {
     int i = 1;
     char *name = store[i].str;
@@ -216,11 +214,11 @@ number_for_key(char *key)
     return 0;
 }
 /////////////////////////
-void inskorlam2 (dict *p, char *s, int n)
+void insert2 (storage *p, char *s, int n)
 {
   p->str = s;
   p->n = n;
-  //printf("\n(%s) Value of the variable2: %d\t\n",p->str,p->n);
+  
 }
 
 int number_for_key2(char *key)

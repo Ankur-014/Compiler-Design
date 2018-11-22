@@ -1,0 +1,33 @@
+ankur_a is already declared
+
+valid declaration
+
+(ankur_a) Value of the variable: 8	
+ankur_ad not declared yet
+inc: 9
+
+value of expression: 9
+
+value of expression: 13
+
+value of expression: 23
+
+condition value zero in IF block
+
+value of expression in IF: 16
+
+value of expression in ELSE: 13
+
+value of expression in IF: 15
+for loop statement
+for loop statement
+for loop statement
+for loop statement
+While LOOP: 0 1 2 3 4 5 
+value of the expression: 
+
+Case No : 2  and Result :  5
+SWITCH case.
+single line comment
+multiple_line_comment
+Successful compilation

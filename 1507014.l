@@ -9,15 +9,14 @@
 
 %}
 
-Datatype "int"|"float"
+Datatype "int"|"float"| "char"
 identifiers "ankur_"[a-zA-Z]([a-zA-Z0-9])*
-arithmatic_operator "jog"|"biyog"|"goon"|"bag"|"pow"
-unary_operator "~++"|"~--"|"~~"|"~!"|"~+"|"~-"
+arithmatic_operator "jog"|"biyog"|"gun"|"vag"|"pow"
+unary_operator "#++"|"#--"|"##"|"#!"|"#+"|"#-"
 logical_operator [&][&]|[|][|]|[!][!]
 relational_operator "<<"|">>"|"<<="|">>="|"=="|"!="
 assignment_operator [=]|"+="|"-="|"/="
-import "import "[a-zA-Z]([a-zA-Z0-9])*
-library_function "TAKEIN<"|"SHOWOUT>"
+library_func "IN<"|"OUT>"
 user_function "function"
 conditional_statement "IF"|"ELSE"|"ELIF"|"WHILE"
 integer (-|\+)?[0-9]+
@@ -28,8 +27,7 @@ multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
 /*RE and Action*/
 
 %%
-"inout"   {return inpit;}
-"import"  {return importtt;}
+
 
 {single_line_comment} {
 	printf("single line comment\n");
@@ -39,45 +37,46 @@ multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
 	printf("multiple_line_comment");
 }
 
-"~++"    {return inc;}
+{unary_operator}   {return inc;}
 "{"	 { return LB; }
 "}"	  { return RB; }
 "COLON"   { return COLON;}
-"BREAK"    {   return BREAK;     }
-"CASE"      { return CASE;      }
-"select"      { return SWITCH;	}
+"Berho"    {   return BREAK;     }
+"Choice"      { return CASE;      }
+"Vandar"      { return SWITCH;	}
 "DEFAULT"     {  return DEFAULT; 	}
-"WHILE" { return WHILE;}
-"int"	{ return INT; }
-"float"	{ return FLOAT; }
-"char"	{ return CHAR; }
+"Chalao_Phir" { return WHILE;}
+"int_i"	{ return INT; }
+"float_f"	{ return FLOAT; }
+"char_c"	{ return CHAR; }
 ":"     { return COL;}
 [0-9]+	{ 
 		yylval.number = atoi(yytext);
 		return NUM;
 	}
-"FOR"   { return FOR;}	
+"Ononto"   { return FOR;}	
 "LP"	{ return LP; }
 "RP"	{ return RP; }
-
 "cm"	{ return CM; }
 "$$"	{ return SM; }
 "jog"	{ return PLUS;}
 "biyog"	{ return MINUS; }
-"goon"	{ return MULT; }
-"bag"	{ return DIV; }
-"="	{ return ASSIGN;  }
+"gun"	{ return MULT; }
+"vag"	{ return DIV; }
+"pow"	{ return POW; }
+"="		{ return ASSIGN;  }
 ">>"	{ return GT; }
 "<<"	{ return LT; }
 
-[a-z]+  {
-	 yylval.string=strdup(yytext);return VAR;
+{identifiers} {
+	 yylval.string=strdup(yytext);
+	 return VAR;
 	}
 
-"IF"		{ return IF;}
-"ELSE"		{ return ELSE;}
+"Agar"		{ return IF;}
+"Nehito"		{ return ELSE;}
 
-"function @func_name"	{ return VOIDMAIN; }
+"function "[A-Za-z]+	{ return FUNCTION; }
 
 [ \t\n]*	
 
@@ -90,7 +89,7 @@ multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
 
 int main()
 {
-	yyin = freopen("a.txt","r",stdin);
+	yyin = freopen("in.txt","r",stdin);
 	yyout = freopen("out.txt","w",stdout);
 	yyparse();
 	
