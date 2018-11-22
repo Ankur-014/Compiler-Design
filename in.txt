@@ -24,11 +24,31 @@ lb
 		lb
 			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
 		rb
-		
 	Agar LP 7 great 5 RP
+		lb
+			Agar LP 7 less 5 RP
+			lb
+				7 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+			rb
+			Nehito
+			lb
+				3 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+			rb
+			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+		rb
+	Nehito
+		lb
+			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+		rb
+		
+	Agar LP 7 less 5 RP
 		lb
 			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
 		rb
+	Phirbhi LP 2 great 1 RP
+		lb
+			3 jog 4 gun 2 vag 2 ##
+		rb 
 	Nehito
 		lb
 			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##

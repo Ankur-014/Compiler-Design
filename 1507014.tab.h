@@ -42,37 +42,39 @@
      NUM = 258,
      VAR = 259,
      IF = 260,
-     ELSE = 261,
-     FUNCTION = 262,
-     INT = 263,
-     FLOAT = 264,
-     DOUBLE = 265,
-     CHAR = 266,
-     LP = 267,
-     RP = 268,
-     LB = 269,
-     RB = 270,
-     CM = 271,
-     SM = 272,
-     PLUS = 273,
-     MINUS = 274,
-     MULT = 275,
-     DIV = 276,
-     POW = 277,
-     ASSIGN = 278,
-     FOR = 279,
-     COL = 280,
-     WHILE = 281,
-     BREAK = 282,
-     COLON = 283,
-     DEFAULT = 284,
-     CASE = 285,
-     SWITCH = 286,
-     inc = 287,
-     LOGIC = 288,
-     IFX = 289,
-     GT = 290,
-     LT = 291
+     ELIF = 261,
+     ELSE = 262,
+     FUNCTION = 263,
+     INT = 264,
+     FLOAT = 265,
+     DOUBLE = 266,
+     CHAR = 267,
+     LP = 268,
+     RP = 269,
+     LB = 270,
+     RB = 271,
+     CM = 272,
+     SM = 273,
+     PLUS = 274,
+     MINUS = 275,
+     MULT = 276,
+     DIV = 277,
+     POW = 278,
+     ASSIGN = 279,
+     FOR = 280,
+     COL = 281,
+     WHILE = 282,
+     BREAK = 283,
+     COLON = 284,
+     DEFAULT = 285,
+     CASE = 286,
+     SWITCH = 287,
+     inc = 288,
+     LOGIC = 289,
+     IFX = 290,
+     ELIFX = 291,
+     GT = 292,
+     LT = 293
    };
 #endif
 
@@ -83,7 +85,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 17 "1507014.y"
+#line 18 "1507014.y"
 
         int number;
         char *string;
@@ -91,7 +93,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 95 "1507014.tab.h"
+#line 97 "1507014.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

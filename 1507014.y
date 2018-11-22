@@ -11,6 +11,7 @@
 	void insert (storage *p, char *s, int n);
 	int cnt2=1; 
 	void insert2 (storage *p, char *s, int n);
+	#define pi  3.1416
 	
 %}
 %union 
@@ -22,15 +23,16 @@
 
 %token <number> NUM
 %token <string> VAR 
-%token <string> IF ELSE FUNCTION INT FLOAT DOUBLE CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc LOGIC
+%token <string> IF ELIF ELSE FUNCTION INT FLOAT DOUBLE CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc LOGIC
 %type <string> statement
 %type <number> expression
 %nonassoc IFX
+%nonassoc ELIFX
 %nonassoc ELSE
 %left LT GT
 %left PLUS MINUS
 %left MULT DIV
-%right POW
+%left POW
 
 /* Simple grammar rules */
 
@@ -120,6 +122,34 @@ statement: SM
 										printf("\nvalue of expression in ELSE: %d\n",$11);
 									}
 								   }
+	| IF LP expression RP LB IF LP expression RP LB expression SM RB ELSE LB expression SM RB expression SM RB ELSE LB expression SM RB %prec IFX {
+								 	if($3)
+									{
+										if($8)
+											printf("\nvalue of expression middle IF: %d\n",$11);
+										else
+											printf("\nvalue of expression middle ELSE: %d\n",$16);
+										printf("\nvalue of expression in first IF: %d\n",$19);
+									}
+									else
+									{
+										printf("\nvalue of expression in else: %d\n",$24);
+									}
+								   }
+	| IF LP expression RP LB expression SM RB ELIF LP expression RP LB expression SM RB ELSE LB expression SM RB {
+								 	if($3)
+									{
+										printf("\nvalue of expression in IF: %d\n",$6);
+									}
+									else if($11)
+									{
+										printf("\nvalue of expression in ELIF: %d\n",$14);
+									}
+									else
+									{
+										printf("\nvalue of expression in ELSE: %d\n",$19);
+									}
+								   }							   
 	| FOR LP NUM COL NUM RP LB expression RB     {
 	   int i=0;
 	   for(i=$3;i<$5;i++){
@@ -134,7 +164,7 @@ statement: SM
 											printf("%d ",i);
 										}
 										printf("\n");
-										printf("value of the expression: \n",$8);
+										printf("value of the expression: %d\n",$8);
 
 	}
 	;

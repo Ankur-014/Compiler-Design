@@ -78,6 +78,7 @@ multiple_line_comment [ ]*[/][a][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][a][/]
 
 "Agar"		{ return IF;}
 "Nehito"		{ return ELSE;}
+"Phirbhi"	{ return ELIF; }
 
 "function "[A-Za-z]+	{ return FUNCTION; }
 
