@@ -1,4 +1,4 @@
-/* author: ankur1507014 */
+/* author: @Salim Shadman Ankur (1507014) */
 
 %{
 	#include<stdio.h>
@@ -9,20 +9,21 @@
 
 %}
 
-Datatype "int"|"float"| "char"
+Datatype "int_i"|"float_f"| "char_c" | "double_d"
 identifiers "ankur_"[a-zA-Z]([a-zA-Z0-9])*
 arithmatic_operator "jog"|"biyog"|"gun"|"vag"|"pow"
-unary_operator "#++"|"#--"|"##"|"#!"|"#+"|"#-"
-logical_operator [&][&]|[|][|]|[!][!]
-relational_operator "<<"|">>"|"<<="|">>="|"=="|"!="
-assignment_operator [=]|"+="|"-="|"/="
+unary_operator "#++"|"#--"|"!#"
+logical_operator "&&"|"||"|"!!"
+relational_operator "less"|"great"|"lesseq"|"greateq"|"eqeq"|"noteq"
+parenthesis "lb"|"rb"|"LP"|"RP"
+assignment_operator [=]|"+="|"-="|"/="|"*="
 library_func "IN<"|"OUT>"
-user_function "function"
-conditional_statement "IF"|"ELSE"|"ELIF"|"WHILE"
-integer (-|\+)?[0-9]+
+integer (-|+)?[0-9]+
 float [+-]?[0-9]+[.][0-9]+|[+-]?[.][0-9]+|[1-9]+e[+-][0-9]+
+double [+-]?[0-9]+[.][0-9]+{6,12}|[+-]?[.][0-9]+|[1-9]+e[+-][0-9]+{6,12}
+char [A-Za-z]+
 single_line_comment [/][/].*
-multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
+multiple_line_comment [ ]*[/][a][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][a][/]
 
 /*RE and Action*/
 
@@ -38,8 +39,9 @@ multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
 }
 
 {unary_operator}   {return inc;}
-"{"	 { return LB; }
-"}"	  { return RB; }
+{logical_operator}	{return LOGIC;}
+"lb"	 { return LB; }
+"rb"	  { return RB; }
 "COLON"   { return COLON;}
 "Berho"    {   return BREAK;     }
 "Choice"      { return CASE;      }
@@ -48,6 +50,7 @@ multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
 "Chalao_Phir" { return WHILE;}
 "int_i"	{ return INT; }
 "float_f"	{ return FLOAT; }
+"double_d"	{return DOUBLE;}
 "char_c"	{ return CHAR; }
 ":"     { return COL;}
 [0-9]+	{ 
@@ -58,15 +61,15 @@ multiple_line_comment [ ]*[/][m][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][m][/]
 "LP"	{ return LP; }
 "RP"	{ return RP; }
 "cm"	{ return CM; }
-"$$"	{ return SM; }
+"##"	{ return SM; }
 "jog"	{ return PLUS;}
 "biyog"	{ return MINUS; }
 "gun"	{ return MULT; }
 "vag"	{ return DIV; }
 "pow"	{ return POW; }
 "="		{ return ASSIGN;  }
-">>"	{ return GT; }
-"<<"	{ return LT; }
+"great"	{ return GT; }
+"less"	{ return LT; }
 
 {identifiers} {
 	 yylval.string=strdup(yytext);

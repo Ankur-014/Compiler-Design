@@ -46,31 +46,33 @@
      FUNCTION = 262,
      INT = 263,
      FLOAT = 264,
-     CHAR = 265,
-     LP = 266,
-     RP = 267,
-     LB = 268,
-     RB = 269,
-     CM = 270,
-     SM = 271,
-     PLUS = 272,
-     MINUS = 273,
-     MULT = 274,
-     DIV = 275,
-     POW = 276,
-     ASSIGN = 277,
-     FOR = 278,
-     COL = 279,
-     WHILE = 280,
-     BREAK = 281,
-     COLON = 282,
-     DEFAULT = 283,
-     CASE = 284,
-     SWITCH = 285,
-     inc = 286,
-     IFX = 287,
-     GT = 288,
-     LT = 289
+     DOUBLE = 265,
+     CHAR = 266,
+     LP = 267,
+     RP = 268,
+     LB = 269,
+     RB = 270,
+     CM = 271,
+     SM = 272,
+     PLUS = 273,
+     MINUS = 274,
+     MULT = 275,
+     DIV = 276,
+     POW = 277,
+     ASSIGN = 278,
+     FOR = 279,
+     COL = 280,
+     WHILE = 281,
+     BREAK = 282,
+     COLON = 283,
+     DEFAULT = 284,
+     CASE = 285,
+     SWITCH = 286,
+     inc = 287,
+     LOGIC = 288,
+     IFX = 289,
+     GT = 290,
+     LT = 291
    };
 #endif
 
@@ -89,7 +91,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 93 "1507014.tab.h"
+#line 95 "1507014.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

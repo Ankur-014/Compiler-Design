@@ -1,48 +1,48 @@
 function main LP RP
-{
-	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_a cm ankur_b $$
-	ankur_a = 8 $$
-	ankur_ad = 8 $$
-	#++ 8 #++ $$
-	1 jog 12 vag 4 gun 4 $$
-	18 biyog 15 jog 8 vag 2 gun 5 $$ 
+lb
+	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_a cm ankur_b ##
+	ankur_a = 8 ##
+	ankur_ad = 8 ##
+	#++ 8 #++ ##
+	1 jog 12 vag 4 gun 4 ##
+	18 biyog 15 jog 8 vag 2 gun 5 ##
 	Agar LP 5 jog 3 biyog 8 RP
-		{
-			12 jog 8 vag 2 $$
-		}
+		lb
+			12 jog 8 vag 2 ##
+		rb
 		
 	Agar LP 5 jog 8 RP
-		{
-			12 jog 8 vag 2 $$
-		}
+		lb
+			12 jog 8 vag 2 ##
+		rb
 
-	Agar LP 7 << 5 RP
-		{
-			2 jog 7 jog 6 gun 2 biyog 18 vag 3 $$
-		}
+	Agar LP 7 less 5 RP
+		lb
+			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+		rb
 	Nehito
-		{
-			6 jog 8 vag 4 jog 2 gun 3 biyog 1 $$
-		}
+		lb
+			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+		rb
 		
-	Agar LP 7 >> 5 RP
-		{
-			2 jog 7 jog 6 gun 2 biyog 18 vag 3 $$
-		}
+	Agar LP 7 great 5 RP
+		lb
+			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+		rb
 	Nehito
-		{
-			6 jog 8 vag 4 jog 2 gun 3 biyog 1 $$
-		}
+		lb
+			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+		rb
 		
-	Ononto LP 2 : 6 RP { 4 jog 2 }
+	Ononto LP 2 : 6 RP lb 4 jog 2 rb
 
-	Chalao_Phir LP 0 >> 5 RP { 4 jog 2 }
+	Chalao_Phir LP 0 great 5 RP lb 4 jog 2 rb
 
-	Vandar LP 2 RP { Choice 1 : 4 jog 2 $$ Choice 2 : 3 jog 2 $$ }                                         
+	Vandar LP 2 RP lb Choice 1 : 4 jog 2 ## Choice 2 : 3 jog 2 ## rb                                         
 	//we try to skip this   
-	/m/Bangladesh is a beautiful
+	/a/Bangladesh is a beautiful
 	country
-	/m/
+	/a/
 
 	
-}
+rb

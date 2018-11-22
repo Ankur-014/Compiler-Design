@@ -1,4 +1,4 @@
-/* author: ankur1507014 */
+/* author: @Salim Shadman Ankur (1507014) */
 
 %{
 	#include<stdio.h>
@@ -22,7 +22,7 @@
 
 %token <number> NUM
 %token <string> VAR 
-%token <string> IF ELSE FUNCTION INT FLOAT CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc 
+%token <string> IF ELSE FUNCTION INT FLOAT DOUBLE CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc LOGIC
 %type <string> statement
 %type <number> expression
 %nonassoc IFX
