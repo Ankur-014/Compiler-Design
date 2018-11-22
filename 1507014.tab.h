@@ -60,21 +60,22 @@
      MULT = 276,
      DIV = 277,
      POW = 278,
-     ASSIGN = 279,
-     FOR = 280,
-     COL = 281,
-     WHILE = 282,
-     BREAK = 283,
-     COLON = 284,
-     DEFAULT = 285,
-     CASE = 286,
-     SWITCH = 287,
-     inc = 288,
-     LOGIC = 289,
-     IFX = 290,
-     ELIFX = 291,
-     GT = 292,
-     LT = 293
+     FACT = 279,
+     ASSIGN = 280,
+     FOR = 281,
+     COL = 282,
+     WHILE = 283,
+     BREAK = 284,
+     COLON = 285,
+     DEFAULT = 286,
+     CASE = 287,
+     SWITCH = 288,
+     inc = 289,
+     LOGIC = 290,
+     IFX = 291,
+     ELIFX = 292,
+     GT = 293,
+     LT = 294
    };
 #endif
 
@@ -85,7 +86,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 18 "1507014.y"
+#line 19 "1507014.y"
 
         int number;
         char *string;
@@ -93,7 +94,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 97 "1507014.tab.h"
+#line 98 "1507014.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

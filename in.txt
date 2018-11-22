@@ -1,8 +1,8 @@
 function main LP RP
 lb
 	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_a cm ankur_b ##
-	ankur_a = 8 ##
-	ankur_ad = 8 ##
+	ankur_a eq 8 ##
+	ankur_ad eq 8 ##
 	#++ 8 #++ ##
 	1 jog 12 vag 4 gun 4 ##
 	18 biyog 15 jog 8 vag 2 gun 5 ##
@@ -13,7 +13,8 @@ lb
 		
 	Agar LP 5 jog 8 RP
 		lb
-			12 jog 8 vag 2 ##
+			4 fact ##
+
 		rb
 
 	Agar LP 7 less 5 RP

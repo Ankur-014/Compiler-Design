@@ -11,7 +11,7 @@
 
 Datatype "int_i"|"float_f"| "char_c" | "double_d"
 identifiers "ankur_"[a-zA-Z]([a-zA-Z0-9])*
-arithmatic_operator "jog"|"biyog"|"gun"|"vag"|"pow"
+arithmatic_operator "jog"|"biyog"|"gun"|"vag"|"pow"|"fact"
 unary_operator "#++"|"#--"|"!#"
 logical_operator "&&"|"||"|"!!"
 relational_operator "less"|"great"|"lesseq"|"greateq"|"eqeq"|"noteq"
@@ -67,7 +67,8 @@ multiple_line_comment [ ]*[/][a][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][a][/]
 "gun"	{ return MULT; }
 "vag"	{ return DIV; }
 "pow"	{ return POW; }
-"="		{ return ASSIGN;  }
+"fact"	{ return FACT; }
+"eq"		{ return ASSIGN;  }
 "great"	{ return GT; }
 "less"	{ return LT; }
 

@@ -14,7 +14,7 @@ value of expression: 23
 
 condition value zero in IF block
 
-value of expression in IF: 16
+value of expression in IF: 24
 
 value of expression in ELSE: 13
 
