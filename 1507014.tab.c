@@ -1518,7 +1518,7 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 64 "1507014.y"
     {
-						if(number_for_key((yyvsp[(3) - (3)].string)) == 1)
+						if(number_for_key((yyvsp[(3) - (3)].string)) == 2)
 						{
 							printf("%s is already declared\n", (yyvsp[(3) - (3)].string) );
 						}
@@ -2033,7 +2033,7 @@ int number_for_key(char *key)
     char *name = store[i].str;
     while (name) {
         if (strcmp(name, key) == 0)
-            return store[i].n;
+            return 2;
         name = store[++i].str;
     }
     return 0;

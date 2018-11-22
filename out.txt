@@ -1,4 +1,5 @@
-ankur_a is already declared
+ankur_c is already declared
+ankur_b is already declared
 
 valid declaration
 

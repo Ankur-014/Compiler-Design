@@ -1,6 +1,6 @@
 function main LP RP
 lb
-	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_a cm ankur_b ##
+	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_c cm ankur_b ##
 	ankur_a eq 8 ##
 	ankur_ad eq 8 ##
 	#++ 8 #++ ##
