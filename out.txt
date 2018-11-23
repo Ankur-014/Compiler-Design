@@ -4,6 +4,8 @@ ankur_b is already declared
 valid declaration
 
 (ankur_a) Value of the variable: 8	
+
+(ankur_b) Value of the variable: 4	
 ankur_ad not declared yet
 inc: 9
 

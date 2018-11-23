@@ -2,6 +2,7 @@ function main LP RP
 lb
 	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_c cm ankur_b ##
 	ankur_a eq 8 ##
+	ankur_b eq 4 ##
 	ankur_ad eq 8 ##
 	#++ 8 #++ ##
 	1 jog 12 vag 4 gun 4 ##

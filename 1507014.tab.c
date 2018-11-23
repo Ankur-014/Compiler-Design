@@ -489,9 +489,9 @@ static const yytype_int8 yyrhs[] =
 static const yytype_uint8 yyrline[] =
 {
        0,    43,    43,    46,    48,    50,    53,    57,    59,    61,
-      64,    77,    90,    91,    93,    95,   106,   117,   127,   141,
-     155,   161,   175,   176,   179,   180,   183,   191,   200,   202,
-     204,   206,   208,   210,   220,   222,   232,   234,   236,   237
+      64,    77,    90,    91,    93,    95,   111,   122,   132,   146,
+     160,   166,   180,   181,   184,   185,   188,   196,   205,   207,
+     209,   211,   213,   215,   225,   227,   237,   239,   241,   243
 };
 #endif
 
@@ -1518,7 +1518,7 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 64 "1507014.y"
     {
-						if(number_for_key((yyvsp[(3) - (3)].string)) == 2)
+						if(number_for_key((yyvsp[(3) - (3)].string)))
 						{
 							printf("%s is already declared\n", (yyvsp[(3) - (3)].string) );
 						}
@@ -1536,7 +1536,7 @@ yyreduce:
 /* Line 1455 of yacc.c  */
 #line 77 "1507014.y"
     {
-				if(number_for_key((yyvsp[(1) - (1)].string)) == 1)
+				if(number_for_key((yyvsp[(1) - (1)].string)))
 				{
 					printf("%s is already declared\n", (yyvsp[(1) - (1)].string) );
 				}
@@ -1568,7 +1568,12 @@ yyreduce:
 #line 95 "1507014.y"
     {
 							if(number_for_key((yyvsp[(1) - (4)].string))){
-								insert2(&sym[(yyvsp[(3) - (4)].number)], (yyvsp[(1) - (4)].string), (yyvsp[(3) - (4)].number));
+								int i = number_for_key2((yyvsp[(1) - (4)].string));
+								if (!i){
+									insert(&sym[cntt], (yyvsp[(1) - (4)].string), (yyvsp[(3) - (4)].number));
+									cntt++;
+								}
+								sym[i].n = (yyvsp[(3) - (4)].number);
 								printf("\n(%s) Value of the variable: %d\t\n",(yyvsp[(1) - (4)].string),(yyvsp[(3) - (4)].number));
 							}
 							else {
@@ -1581,7 +1586,7 @@ yyreduce:
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 106 "1507014.y"
+#line 111 "1507014.y"
     {
 								if((yyvsp[(3) - (8)].number))
 								{
@@ -1597,7 +1602,7 @@ yyreduce:
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 117 "1507014.y"
+#line 122 "1507014.y"
     {
 								 	if((yyvsp[(3) - (13)].number))
 									{
@@ -1613,7 +1618,7 @@ yyreduce:
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 127 "1507014.y"
+#line 132 "1507014.y"
     {
 								 	if((yyvsp[(3) - (26)].number))
 									{
@@ -1633,7 +1638,7 @@ yyreduce:
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 141 "1507014.y"
+#line 146 "1507014.y"
     {
 								 	if((yyvsp[(3) - (21)].number))
 									{
@@ -1653,7 +1658,7 @@ yyreduce:
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 155 "1507014.y"
+#line 160 "1507014.y"
     {
 	   int i=0;
 	   for(i=(yyvsp[(3) - (9)].number);i<(yyvsp[(5) - (9)].number);i++){
@@ -1665,7 +1670,7 @@ yyreduce:
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 161 "1507014.y"
+#line 166 "1507014.y"
     {
 										int i;
 										printf("While LOOP: ");
@@ -1682,7 +1687,7 @@ yyreduce:
   case 26:
 
 /* Line 1455 of yacc.c  */
-#line 183 "1507014.y"
+#line 188 "1507014.y"
     {
 						if((yyvsp[(2) - (5)].number)==2){
 							  cntt=1;
@@ -1694,7 +1699,7 @@ yyreduce:
   case 27:
 
 /* Line 1455 of yacc.c  */
-#line 191 "1507014.y"
+#line 196 "1507014.y"
     {
 						if(cntt==0){
 							printf("\nResult in default Value is :  %d \n",(yyvsp[(3) - (4)].number));
@@ -1705,42 +1710,42 @@ yyreduce:
   case 28:
 
 /* Line 1455 of yacc.c  */
-#line 200 "1507014.y"
+#line 205 "1507014.y"
     { (yyval.number) = (yyvsp[(1) - (1)].number); 	;}
     break;
 
   case 29:
 
 /* Line 1455 of yacc.c  */
-#line 202 "1507014.y"
+#line 207 "1507014.y"
     { (yyval.number) = number_for_key2((yyvsp[(1) - (1)].string)); printf("Variable value: %d",(yyval.number));}
     break;
 
   case 30:
 
 /* Line 1455 of yacc.c  */
-#line 204 "1507014.y"
+#line 209 "1507014.y"
     { (yyval.number) = (yyvsp[(1) - (3)].number) + (yyvsp[(3) - (3)].number); ;}
     break;
 
   case 31:
 
 /* Line 1455 of yacc.c  */
-#line 206 "1507014.y"
+#line 211 "1507014.y"
     { (yyval.number) = (yyvsp[(1) - (3)].number) - (yyvsp[(3) - (3)].number); ;}
     break;
 
   case 32:
 
 /* Line 1455 of yacc.c  */
-#line 208 "1507014.y"
+#line 213 "1507014.y"
     { (yyval.number) = (yyvsp[(1) - (3)].number) * (yyvsp[(3) - (3)].number); ;}
     break;
 
   case 33:
 
 /* Line 1455 of yacc.c  */
-#line 210 "1507014.y"
+#line 215 "1507014.y"
     { 	if((yyvsp[(3) - (3)].number)) 
 				  		{
 				     			(yyval.number) = (yyvsp[(1) - (3)].number) / (yyvsp[(3) - (3)].number);
@@ -1756,14 +1761,14 @@ yyreduce:
   case 34:
 
 /* Line 1455 of yacc.c  */
-#line 220 "1507014.y"
+#line 225 "1507014.y"
     { (yyval.number) = pow((yyvsp[(1) - (3)].number),(yyvsp[(3) - (3)].number)); ;}
     break;
 
   case 35:
 
 /* Line 1455 of yacc.c  */
-#line 222 "1507014.y"
+#line 227 "1507014.y"
     {
 						int mult=1 ,i;
 						for(i=(yyvsp[(1) - (2)].number);i>0;i--)
@@ -1778,35 +1783,35 @@ yyreduce:
   case 36:
 
 /* Line 1455 of yacc.c  */
-#line 232 "1507014.y"
+#line 237 "1507014.y"
     { (yyval.number) = (yyvsp[(1) - (3)].number) < (yyvsp[(3) - (3)].number); ;}
     break;
 
   case 37:
 
 /* Line 1455 of yacc.c  */
-#line 234 "1507014.y"
+#line 239 "1507014.y"
     { (yyval.number) = (yyvsp[(1) - (3)].number) > (yyvsp[(3) - (3)].number); ;}
     break;
 
   case 38:
 
 /* Line 1455 of yacc.c  */
-#line 236 "1507014.y"
+#line 241 "1507014.y"
     { (yyval.number) = (yyvsp[(2) - (3)].number);	;}
     break;
 
   case 39:
 
 /* Line 1455 of yacc.c  */
-#line 237 "1507014.y"
+#line 243 "1507014.y"
     { (yyval.number)=(yyvsp[(2) - (3)].number)+1; printf("inc: %d\n",(yyval.number));;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1810 "1507014.tab.c"
+#line 1815 "1507014.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2018,7 +2023,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 239 "1507014.y"
+#line 245 "1507014.y"
 
 //////////////////////////
 void insert(storage *p, char *s, int n)
@@ -2033,7 +2038,7 @@ int number_for_key(char *key)
     char *name = store[i].str;
     while (name) {
         if (strcmp(name, key) == 0)
-            return 2;
+            return store[i].n;
         name = store[++i].str;
     }
     return 0;
@@ -2052,7 +2057,7 @@ int number_for_key2(char *key)
     char *name = sym[i].str;
     while (name) {
         if (strcmp(name, key) == 0)
-            return sym[i].n;
+            return i;
         name = sym[++i].str;
     }
     return 0;

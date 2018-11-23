@@ -62,7 +62,7 @@ TYPE : INT
      ;
 
 ID1  : ID1 CM VAR	{
-						if(number_for_key($3) == 2)
+						if(number_for_key($3))
 						{
 							printf("%s is already declared\n", $3 );
 						}
@@ -75,7 +75,7 @@ ID1  : ID1 CM VAR	{
 			}
 
      |VAR	{
-				if(number_for_key($1) == 1)
+				if(number_for_key($1))
 				{
 					printf("%s is already declared\n", $1 );
 				}
@@ -94,7 +94,12 @@ statement: SM
 
         | VAR ASSIGN expression SM 		{
 							if(number_for_key($1)){
-								insert2(&sym[$3], $1, $3);
+								int i = number_for_key2($1);
+								if (!i){
+									insert(&sym[cntt], $1, $3);
+									cntt++;
+								}
+								sym[i].n = $3;
 								printf("\n(%s) Value of the variable: %d\t\n",$1,$3);
 							}
 							else {
@@ -234,6 +239,7 @@ expression: NUM				{ $$ = $1; 	}
 	| expression GT expression	{ $$ = $1 > $3; }
 
 	| LP expression RP		{ $$ = $2;	}
+	
 	| inc expression inc         { $$=$2+1; printf("inc: %d\n",$$);}
 	;
 %%
@@ -250,7 +256,7 @@ int number_for_key(char *key)
     char *name = store[i].str;
     while (name) {
         if (strcmp(name, key) == 0)
-            return 2;
+            return store[i].n;
         name = store[++i].str;
     }
     return 0;
@@ -269,7 +275,7 @@ int number_for_key2(char *key)
     char *name = sym[i].str;
     while (name) {
         if (strcmp(name, key) == 0)
-            return sym[i].n;
+            return i;
         name = sym[++i].str;
     }
     return 0;
