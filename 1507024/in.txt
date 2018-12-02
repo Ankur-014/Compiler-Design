@@ -1,0 +1,74 @@
+function main LP RP
+lb
+	int_i  ankur_a cm  ankur_b cm ankur_c cm ankur_c cm ankur_b ##
+	ankur_a eq 8 ##
+	ankur_b eq 4 ##
+	ankur_ad eq 8 ##
+	#++ 8 #++ ##
+	#-- 8 #-- ##
+	!# 8 !# ##
+	1 jog 12 vag 4 gun 4 ##
+	18 biyog 15 jog 8 vag 2 gun 5 ##
+	Agar LP 5 jog 3 biyog 8 RP
+		lb
+			12 jog 8 vag 2 ##
+		rb
+		
+	Agar LP 5 jog 8 RP
+		lb
+			4 fact ##
+
+		rb
+
+	Agar LP 7 less 5 RP
+		lb
+			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+		rb
+	Nehito
+		lb
+			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+		rb
+	Agar LP 7 great 5 RP
+		lb
+			Agar LP 7 less 5 RP
+			lb
+				7 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+			rb
+			Nehito
+			lb
+				3 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+			rb
+			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+		rb
+	Nehito
+		lb
+			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+		rb
+		
+	Agar LP 7 less 5 RP
+		lb
+			2 jog 7 jog 6 gun 2 biyog 18 vag 3 ##
+		rb
+	Phirbhi LP 2 great 1 RP
+		lb
+			3 jog 4 gun 2 vag 2 ##
+		rb 
+	Nehito
+		lb
+			6 jog 8 vag 4 jog 2 gun 3 biyog 1 ##
+		rb
+		
+	Ononto LP 2 : 6 RP lb 4 jog 2 rb
+
+	Chalao_Phir LP 0 great 5 RP lb 4 jog 2 rb
+
+	Vandar LP 3 RP lb Choice 1 : 4 jog 2 ## Choice 2 : 3 jog 2 ## standby : 8 fact ## rb                                         
+	//we try to skip this   
+	/a/Bangladesh is a beautiful
+	country
+	/a/
+
+	func ankur : int_i LP RP lb ## rb 
+
+	
+rb
