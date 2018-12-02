@@ -10,6 +10,12 @@ ankur_ad not declared yet
 inc: 9
 
 value of expression: 9
+dec: 7
+
+value of expression: 7
+not: 0
+
+value of expression: 0
 
 value of expression: 13
 
@@ -37,4 +43,6 @@ Case No : 2  and Result :  5
 SWITCH case.
 single line comment
 multiple_line_comment
+Function Declared
+
 Successful compilation

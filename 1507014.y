@@ -3,7 +3,7 @@
 %{
 	#include<stdio.h>
 	#include <math.h>
-	int cnt=1,cntt=0,val;
+	int cnt=1,cntt=0,val,track=0;
 	typedef struct entry {
     	char *str;
     	int n;
@@ -24,9 +24,10 @@
 
 %token <number> NUM
 %token <string> VAR 
-%token <string> IF ELIF ELSE FUNCTION INT FLOAT DOUBLE CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW FACT ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc LOGIC
+%token <string> IF ELIF ELSE FUNCTION INT FLOAT DOUBLE CHAR LP RP LB RB CM SM PLUS MINUS MULT DIV POW FACT ASSIGN FOR COL WHILE BREAK COLON DEFAULT CASE SWITCH inc dec not funct LOGIC
 %type <string> statement
 %type <number> expression
+%type <number> switch_expression
 %nonassoc IFX
 %nonassoc ELIFX
 %nonassoc ELSE
@@ -88,7 +89,7 @@ ID1  : ID1 CM VAR	{
      ;
 
 statement: SM
-	| SWITCH LP expression RP LB BASE RB    {printf("SWITCH case.\n");val=$3;} 
+	| SWITCH LP switch_expression RP LB BASE RB    {printf("SWITCH case.\n");} 
 
 	| expression SM 			{ printf("\nvalue of expression: %d\n", ($1)); }
 
@@ -174,7 +175,20 @@ statement: SM
 										printf("value of the expression: %d\n",$8);
 
 	}
+/*------function begin-----------*/
+
+	| funct func
 	;
+
+			func : COL TYPE LP RP LB statement RB
+							{
+								printf("Function Declared\n");
+							}
+				;
+
+
+/*-------function end------------*/
+	
 ///////////////////////
 	
 			BASE : Bas   
@@ -186,17 +200,19 @@ statement: SM
 				 ;
 
 			Cs    : CASE NUM COL expression SM   {
-						if($2==2){
-							  cntt=1;
+						
+						if(val==$2){
+							  track=1;
 							  printf("\nCase No : %d  and Result :  %d\n",$2,$4);
 						}
 					}
 				 ;
 
-			Dflt    : DEFAULT COLON NUM SM    {
-						if(cntt==0){
-							printf("\nResult in default Value is :  %d \n",$3);
+			Dflt    : DEFAULT COL expression SM    {
+						if(track!=1){
+							printf("\nResult in default Value is :  %d\n",$3);
 						}
+						track=0;
 					}
 				 ;    
 	/////////////////////////////
@@ -241,8 +257,77 @@ expression: NUM				{ $$ = $1; 	}
 	| LP expression RP		{ $$ = $2;	}
 	
 	| inc expression inc         { $$=$2+1; printf("inc: %d\n",$$);}
+
+	| dec expression dec         { $$=$2-1; printf("dec: %d\n",$$);}
+
+	| not expression not {
+						if($2 != 0)
+						{
+							$$ = 0; printf("not: %d\n",$$);
+						}
+						else{
+							$$ = 1 ; printf("aff: %d\n",$$);
+						}
+					}
+	;
+
+
+///////////////////////
+
+switch_expression: NUM				{ $$ = $1; val = $$;	}
+
+	| VAR				{ $$ = number_for_key2($1); val = $$;}
+
+	| switch_expression PLUS switch_expression	{ $$ = $1 + $3; val = $$; }
+
+	| switch_expression MINUS switch_expression	{ $$ = $1 - $3; val = $$; }
+
+	| switch_expression MULT switch_expression	{ $$ = $1 * $3;  val = $$;}
+
+	| switch_expression DIV switch_expression	{ 	if($3) 
+				  		{
+				     			$$ = $1 / $3; val = $$;
+				  		}
+				  		else
+				  		{
+							$$ = 0;
+							 val = $$;
+				  		} 	
+				    	}
+	| switch_expression POW switch_expression { $$ = pow($1,$3);  val = $$;}
+
+	| switch_expression FACT {
+						int mult=1 ,i;
+						for(i=$1;i>0;i--)
+						{
+							mult=mult*i;
+						}
+						$$=mult; val = $$;
+						
+					 }	
+
+	| switch_expression LT switch_expression	{ $$ = $1 < $3; val = $$; }
+
+	| switch_expression GT switch_expression	{ $$ = $1 > $3;  val = $$;}
+
+	| LP switch_expression RP		{ $$ = $2;	 val = $$;}
+	
+	| inc switch_expression inc         { $$=$2+1; printf("inc: %d\n",$$); val = $$;}
+
+	| dec switch_expression dec         { $$=$2-1; printf("dec: %d\n",$$); val = $$;}
+
+	| not switch_expression not {
+						if($2 != 0)
+						{
+							$$ = 0; val = $$;
+						}
+						else{
+							$$ = 1 ; val = $$;
+						}
+					}
 	;
 %%
+
 //////////////////////////
 void insert(storage *p, char *s, int n)
 {

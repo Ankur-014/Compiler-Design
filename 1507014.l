@@ -35,18 +35,19 @@ multiple_line_comment [ ]*[/][a][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][a][/]
 
 }
 {multiple_line_comment} {
-	printf("multiple_line_comment");
+	printf("multiple_line_comment\n");
 }
 
-{unary_operator}   {return inc;}
+"#++"   {return inc;}
+"#--"	{return dec;}
+"!#"	{return not;}
 {logical_operator}	{return LOGIC;}
 "lb"	 { return LB; }
 "rb"	  { return RB; }
-"COLON"   { return COLON;}
 "Berho"    {   return BREAK;     }
 "Choice"      { return CASE;      }
 "Vandar"      { return SWITCH;	}
-"DEFAULT"     {  return DEFAULT; 	}
+"standby"     {  return DEFAULT; 	}
 "Chalao_Phir" { return WHILE;}
 "int_i"	{ return INT; }
 "float_f"	{ return FLOAT; }
@@ -82,6 +83,7 @@ multiple_line_comment [ ]*[/][a][/][a-zA-Z0-9!@#*(){}_+-,.:\|?><\n\t ]*[/][a][/]
 "Phirbhi"	{ return ELIF; }
 
 "function "[A-Za-z]+	{ return FUNCTION; }
+"func "[A-Za-z]+	{return funct;}
 
 [ \t\n]*	
 

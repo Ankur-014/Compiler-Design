@@ -71,11 +71,14 @@
      CASE = 287,
      SWITCH = 288,
      inc = 289,
-     LOGIC = 290,
-     IFX = 291,
-     ELIFX = 292,
-     GT = 293,
-     LT = 294
+     dec = 290,
+     not = 291,
+     funct = 292,
+     LOGIC = 293,
+     IFX = 294,
+     ELIFX = 295,
+     GT = 296,
+     LT = 297
    };
 #endif
 
@@ -94,7 +97,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 98 "1507014.tab.h"
+#line 101 "1507014.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
