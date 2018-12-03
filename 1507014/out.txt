@@ -1,0 +1,48 @@
+ankur_c is already declared
+ankur_b is already declared
+
+valid declaration
+
+(ankur_a) Value of the variable: 8	
+
+(ankur_b) Value of the variable: 4	
+ankur_ad not declared yet
+inc: 9
+
+value of expression: 9
+dec: 7
+
+value of expression: 7
+not: 0
+
+value of expression: 0
+
+value of expression: 13
+
+value of expression: 23
+
+condition value zero in IF block
+
+value of expression in IF: 24
+
+value of expression in ELSE: 13
+
+value of expression middle ELSE: 10
+
+value of expression in first IF: 15
+
+value of expression in ELIF: 7
+for loop statement
+for loop statement
+for loop statement
+for loop statement
+While LOOP: 0 1 2 3 4 5 
+value of the expression: 6
+
+Result in default Value is :  40320
+SWITCH case.
+single line comment
+multiple_line_comment
+Function Declared
+
+Successful compilation
